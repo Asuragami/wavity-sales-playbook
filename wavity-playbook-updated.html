@@ -1,0 +1,1464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wavity Sales Playbook - Complete Edition</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f8fafc 0%, #dbeafe 50%, #e0e7ff 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .mono {
+            font-family: 'Space Mono', monospace;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            margin-bottom: 40px;
+            animation: slideInUp 0.6s ease-out;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .header-icon {
+            padding: 16px;
+            background: linear-gradient(135deg, #6366f1 0%, #9333ea 100%);
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+        }
+
+        .header-icon svg {
+            display: block;
+        }
+
+        .wavity-logo {
+            height: 48px;
+            width: auto;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, #4F46E5, #7C3AED, #EC4899);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 3s linear infinite;
+        }
+
+        .header p {
+            color: #64748b;
+            font-size: 0.875rem;
+            margin-top: 4px;
+        }
+
+        .search-container {
+            position: relative;
+            margin-top: 24px;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #9ca3af;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 14px 16px 14px 48px;
+            border-radius: 12px;
+            border: 2px solid #e5e7eb;
+            background: white;
+            font-size: 1rem;
+            transition: all 0.2s;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #6366f1;
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.15);
+        }
+
+        .main-grid {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 24px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .nav-card {
+            background: white;
+            border-radius: 16px;
+            padding: 16px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid #f3f4f6;
+        }
+
+        .nav-title {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 12px;
+            padding: 0 8px;
+        }
+
+        .nav-button {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            width: 100%;
+            padding: 14px 16px;
+            border: none;
+            border-radius: 12px;
+            background: white;
+            color: #374151;
+            font-size: 0.875rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 8px;
+            border: 2px solid #f3f4f6;
+        }
+
+        .nav-button:hover {
+            background: #f9fafb;
+            border-color: #e5e7eb;
+            transform: translateX(2px);
+        }
+
+        .nav-button.active {
+            background: linear-gradient(135deg, var(--section-color-1), var(--section-color-2));
+            color: white;
+            border-color: transparent;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .stats-card {
+            background: linear-gradient(135deg, #6366f1 0%, #9333ea 100%);
+            border-radius: 16px;
+            padding: 20px;
+            color: white;
+            box-shadow: 0 8px 16px rgba(99, 102, 241, 0.3);
+        }
+
+        .stats-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            opacity: 0.9;
+        }
+
+        .stat-item {
+            margin-bottom: 16px;
+        }
+
+        .stat-value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            opacity: 0.8;
+        }
+
+        .content-card {
+            background: white;
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid #f3f4f6;
+            animation: slideInUp 0.6s ease-out;
+        }
+
+        .content-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 32px;
+            background: linear-gradient(135deg, var(--section-color-1), var(--section-color-2));
+            color: white;
+        }
+
+        .content-header-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .content-icon-wrapper {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 12px;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+
+        .content-icon {
+            display: block;
+        }
+
+        .content-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+        }
+
+        .content-subtitle {
+            font-size: 0.875rem;
+            opacity: 0.9;
+            margin-top: 4px;
+        }
+
+        .add-tactic-btn {
+            padding: 12px 24px;
+            background: white;
+            color: #6366f1;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s;
+            font-size: 0.875rem;
+        }
+
+        .add-tactic-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .content-body {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .tactic-card {
+            background: white;
+            border: 2px solid #f3f4f6;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .tactic-card:hover {
+            border-color: #e5e7eb;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .tactic-card.expanded {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .tactic-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .tactic-header-left {
+            flex: 1;
+        }
+
+        .tactic-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 8px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 8px;
+        }
+
+        .tag {
+            background: #f3f4f6;
+            color: #6b7280;
+            padding: 4px 12px;
+            border-radius: 16px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .tactic-controls {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .icon-btn {
+            background: none;
+            border: none;
+            padding: 8px;
+            cursor: pointer;
+            border-radius: 8px;
+            color: #9ca3af;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .icon-btn:hover {
+            background: #f3f4f6;
+            color: #6366f1;
+        }
+
+        .icon-btn.active {
+            color: #fbbf24;
+        }
+
+        .icon-btn.delete:hover {
+            background: #fee2e2;
+            color: #dc2626;
+        }
+
+        .chevron {
+            color: #9ca3af;
+            transition: transform 0.3s;
+        }
+
+        .tactic-card.expanded .chevron {
+            transform: rotate(180deg);
+        }
+
+        .tactic-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            padding: 0 20px;
+        }
+
+        .tactic-card.expanded .tactic-content {
+            max-height: 2000px;
+            padding: 0 20px 20px;
+        }
+
+        .content-item {
+            margin-bottom: 16px;
+            padding: 16px;
+            background: #f9fafb;
+            border-radius: 8px;
+        }
+
+        .content-label {
+            display: block;
+            font-weight: 700;
+            color: #374151;
+            margin-bottom: 8px;
+            font-size: 0.875rem;
+            text-transform: capitalize;
+        }
+
+        .content-text {
+            color: #6b7280;
+            line-height: 1.6;
+            font-size: 0.9375rem;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 16px;
+            padding: 32px;
+            max-width: 600px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: slideInUp 0.3s ease-out;
+        }
+
+        .modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1f2937;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            padding: 8px;
+            cursor: pointer;
+            color: #9ca3af;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        .close-btn:hover {
+            background: #f3f4f6;
+            color: #374151;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 8px;
+            font-size: 0.875rem;
+        }
+
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 0.9375rem;
+            transition: all 0.2s;
+        }
+
+        .form-input:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: #6366f1;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: #6366f1;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #4f46e5;
+        }
+
+        .btn-secondary {
+            background: #f3f4f6;
+            color: #374151;
+        }
+
+        .btn-secondary:hover {
+            background: #e5e7eb;
+        }
+
+        .fields-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .field-item {
+            display: grid;
+            grid-template-columns: 1fr 2fr auto;
+            gap: 8px;
+        }
+
+        .add-field-btn {
+            padding: 10px;
+            background: #f3f4f6;
+            color: #374151;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-weight: 600;
+            font-size: 0.875rem;
+            margin-top: 8px;
+        }
+
+        .add-field-btn:hover {
+            background: #e5e7eb;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .modal-actions button {
+            flex: 1;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @media (max-width: 1024px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.75rem;
+            }
+
+            .content-title {
+                font-size: 1.25rem;
+            }
+
+            .field-item {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <img src="https://cdn.prod.website-files.com/64c9630e85bbf2f9e071ecfc/685508594ed4e8be4c981cd3_wavity%20ai%20logo.png" alt="Wavity Logo" class="wavity-logo">
+                <div>
+                    <h1>Wavity Sales Playbook</h1>
+                    <p class="mono">Your complete guide to crushing it</p>
+                </div>
+            </div>
+            <div class="search-container">
+                <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                </svg>
+                <input type="text" id="searchInput" class="search-input" placeholder="Search tactics...">
+            </div>
+        </div>
+
+        <div class="main-grid">
+            <div class="sidebar">
+                <div class="nav-card">
+                    <div class="nav-title">Core Playbook</div>
+                    <div id="coreNavButtons"></div>
+                </div>
+                
+                <div class="nav-card">
+                    <div class="nav-title">Advanced</div>
+                    <div id="advancedNavButtons"></div>
+                </div>
+
+                <div class="nav-card">
+                    <div class="nav-title">Resources</div>
+                    <div id="resourcesNavButtons"></div>
+                </div>
+
+                <div class="stats-card">
+                    <div class="stats-title">Quick Stats</div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="tacticsCount">0</div>
+                        <div class="stat-label">Total Tactics</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="bookmarksCount">0</div>
+                        <div class="stat-label">Bookmarked</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-card">
+                <div class="content-header" id="contentHeader">
+                    <div class="content-header-left">
+                        <div class="content-icon-wrapper">
+                            <svg class="content-icon" id="contentIcon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="content-title" id="contentTitle"></div>
+                            <div class="content-subtitle" id="contentSubtitle"></div>
+                        </div>
+                    </div>
+                    <button class="add-tactic-btn" onclick="openAddModal()">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                        Add Tactic
+                    </button>
+                </div>
+                <div class="content-body" id="contentBody"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add/Edit Modal -->
+    <div class="modal" id="tacticModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalTitle">Add New Tactic</h2>
+                <button class="close-btn" onclick="closeModal()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <form id="tacticForm" onsubmit="saveTactic(event)">
+                <div class="form-group">
+                    <label class="form-label">Tactic Name*</label>
+                    <input type="text" id="tacticName" class="form-input" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Tags (comma-separated)</label>
+                    <input type="text" id="tacticTags" class="form-input" placeholder="e.g., prospecting, competitive, ai">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Content Fields</label>
+                    <div class="fields-container" id="fieldsContainer"></div>
+                    <button type="button" class="add-field-btn" onclick="addField()">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline; vertical-align: middle; margin-right: 4px;">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                        Add Field
+                    </button>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Tactic</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const playbook = {
+            core: {
+                icp: {
+                    title: 'Ideal Customer Profile',
+                    icon: 'target',
+                    colors: ['#3b82f6', '#2563eb'],
+                    content: {
+                        'Perfect Fit Indicators': {
+                            size: '200-2000 employees (sweet spot: 500-1000)',
+                            revenue: '$50M-$500M ARR',
+                            tech: 'Using legacy ITSM (ServiceNow, Zendesk, Zoho Desk, ManageEngine, Jira Service Desk) with complaints about cost/complexity',
+                            pain: 'Recent negative G2 reviews mentioning "expensive," "slow implementation," or "overkill for our needs"',
+                            buying: 'IT Director/VP level with budget authority. CIO involved in deals >$100K.',
+                            timing: 'Budget cycles: Q4 planning (Sept-Nov), Q1 execution (Jan-Mar). New fiscal year = new priorities.',
+                            tags: ['icp', 'targeting']
+                        },
+                        'Industries That Convert': {
+                            top: 'SaaS (38% close rate), Professional Services (32%), Healthcare Tech (29%)',
+                            why: 'These orgs value agility over enterprise bloat. They have IT teams but not massive ops.',
+                            avoid: 'Enterprises >5000 employees. They want ServiceNow even if it sucks. Financial services - compliance hell.',
+                            emerging: 'Prop tech, climate tech, supply chain tech - growing fast, outgrowing basic tools',
+                            tags: ['icp', 'industry']
+                        },
+                        'Red Flags to Avoid': {
+                            broke: 'Under 100 employees unless they just raised Series B+. Small = no budget.',
+                            satisfied: 'Renewed ServiceNow, Zendesk, or Zoho contract in last 6 months. They\'re committed.',
+                            slow: 'Government, education, old-school manufacturing. 18-month sales cycles = death.',
+                            ghosting: 'If IT Director won\'t take your call after 3 attempts, move on. They\'re not buyers.',
+                            tags: ['icp', 'disqualification']
+                        }
+                    }
+                },
+                prospecting: {
+                    title: 'Prospecting Tactics',
+                    icon: 'zap',
+                    colors: ['#10b981', '#059669'],
+                    content: {
+                        'The Apollo Formula': {
+                            filters: 'Title: IT Director, VP IT, CIO | Employees: 200-2000 | Tech Stack: ServiceNow OR Zendesk OR Zoho Desk OR ManageEngine OR Jira Service Desk | Exclude: Fortune 500',
+                            search: 'Boolean: (ITSM OR "service desk" OR "IT support") AND (expensive OR "too complex" OR frustrated)',
+                            automation: 'Use Apollo\'s LinkedIn integration to auto-send connection requests to filtered lists',
+                            tags: ['prospecting', 'linkedin']
+                        },
+                        'Trigger Events': {
+                            signals: 'Set up Apollo alerts for: New CIO/CTO appointments, M&A announcements, Series B+ funding rounds, negative Glassdoor reviews mentioning "outdated systems"',
+                            timing: 'New CIO = 90-day window to pitch "quick wins." M&A = urgent need to consolidate systems. Funding = budget unlocked.',
+                            outreach: '"Congrats on the new role! Most CIOs we work with want a quick win in first 90 days. Cutting ITSM costs 40% while improving service usually fits the bill. Worth exploring?"',
+                            tags: ['prospecting', 'timing']
+                        },
+                        'The Competitor Migration Play': {
+                            filter: 'Apollo filter: Companies using ServiceNow, Zendesk, Zoho Desk, or ManageEngine with 200-1000 employees + posted job for ServiceNow admin in last 3 months',
+                            message: '"I noticed you\'re hiring a [ServiceNow/Zendesk/ManageEngine] admin. That usually means one of two things: (1) you\'re scaling usage, or (2) you\'re drowning in customization requests. Which one is it?"',
+                            why: 'Hiring ServiceNow admin = pain point. Either way, you have a solution.',
+                            stats: 'Companies hiring for vendor-specific admins have 60% higher likelihood of switching',
+                            tags: ['prospecting', 'competitive']
+                        },
+                        'The Zoho Desk Upgrade Play': {
+                            filter: 'Apollo: Companies using Zoho Desk on Standard/Professional plans (not Enterprise). Look for: "evaluating AI tools" OR "need live chat" in recent posts.',
+                            message: '"Saw you\'re on Zoho Desk Standard. Quick question - have you looked at the cost to upgrade to Enterprise for Zia AI? It\'s $40-50/agent/month. We include better AI at $12/month base price. Curious?"',
+                            why: 'Zoho locks AI and live chat behind expensive Enterprise tier. Most teams don\'t know this until they need those features.',
+                            timing: 'Target during their renewal period or when they post about needing AI/automation features.',
+                            conversion: 'Zoho Standard users facing AI upgrade convert at 42% when shown Wavity\'s all-inclusive pricing.',
+                            tags: ['prospecting', 'competitive', 'zoho']
+                        },
+                        'The ManageEngine Complexity Escape': {
+                            filter: 'Apollo: Companies using ManageEngine ServiceDesk Plus. Look for job posts: "ManageEngine administrator" OR "ITSM administrator" OR "ServiceDesk Plus admin."',
+                            message: '"I see you have ManageEngine. Quick question - how many hours per week does your team spend on configuration and maintenance? Most teams tell us it\'s 15-20 hours. What if you could get that time back?"',
+                            why: 'ManageEngine requires dedicated admin, complex configuration. Pain points: steep learning curve, add-on costs, implementation time.',
+                            stats: 'ManageEngine users spending >10 hours/week on admin tasks convert at 38% when shown Wavity\'s zero-code simplicity.',
+                            landmines: 'Ask about: total cost with add-ons, implementation timeline (2-6 months typical), support response time, mobile app limitations.',
+                            tags: ['prospecting', 'competitive', 'manageengine']
+                        },
+                        'Referral Machine': {
+                            ask: 'After closing a deal: "Who else do you know dealing with similar ITSM headaches?" Get 2-3 names, ask for warm intro.',
+                            incentive: 'Offer: "For every referral that closes, we\'ll give you a 10% credit on your next renewal."',
+                            why: 'Warm intros close at 40%+ vs. cold outreach at 2-5%. Math is obvious.',
+                            timing: 'Best time to ask: right after they see first value (30-60 days post-deployment)',
+                            tags: ['referrals', 'closing']
+                        },
+                        'The Free Audit': {
+                            offer: '"Free ITSM Cost Audit - we\'ll calculate your true TCO including hidden costs like admin overhead, implementation delays, and shadow IT. No strings attached."',
+                            process: 'Send simple questionnaire. Build custom ROI model showing their potential savings. Present findings on call.',
+                            conversion: 'Audits that show $200K+ savings convert at 35%. You\'ve now created urgency.',
+                            effort: 'Takes 2 hours. Worth it for qualified leads.',
+                            tags: ['prospecting', 'value-prop']
+                        },
+                        'Content That Sells': {
+                            create: 'Weekly LinkedIn posts: "3 signs your ITSM is costing you more than you think," "Why [industry] companies are ditching ServiceNow," "Case Study: [Company] cut ITSM costs $300K annually"',
+                            strategy: 'Tag prospects in comments. DM anyone who engages. Content positions you as expert.',
+                            results: 'Expect 5-10 inbound leads per month from consistent posting',
+                            hack: 'Repurpose case studies into LinkedIn carousel posts - they get 3x more engagement',
+                            tags: ['content', 'linkedin']
+                        }
+                    }
+                },
+                outreach: {
+                    title: 'Email Outreach',
+                    icon: 'mail',
+                    colors: ['#f59e0b', '#d97706'],
+                    content: {
+                        'Cold Email That Works': {
+                            subject: '"[First Name], question about your ServiceNow costs" - 42% open rate',
+                            body: '"Hey [Name], noticed [Company] is using ServiceNow. Quick question: are you happy with what you\'re paying vs. what you\'re getting? Most IT leaders we talk to are spending 2-3x what they should. Worth a 15-min chat to see if you\'re one of them? - [Your Name]"',
+                            why: 'Short, personal, poses question instead of pitching. Creates curiosity.',
+                            length: 'Under 75 words. Anything longer gets ignored.',
+                            tags: ['email', 'cold-outreach']
+                        },
+                        'Follow-Up Cadence': {
+                            day1: 'Initial email',
+                            day3: '"Hey [Name], following up on my email about ITSM costs. Bad timing? Let me know."',
+                            day7: 'Send case study: "[Company] cut ServiceNow costs 60%. Here\'s how."',
+                            day14: 'Video email: 30-sec Loom explaining one insight from their tech stack',
+                            day21: 'Breakup email: "Looks like this isn\'t a priority. I\'ll check back in 6 months unless you tell me otherwise."',
+                            results: '70% of responses come from follow-ups, not initial email',
+                            tags: ['email', 'cadence']
+                        }
+                    }
+                },
+                calling: {
+                    title: 'Cold Calling',
+                    icon: 'phone',
+                    colors: ['#8b5cf6', '#7c3aed'],
+                    content: {
+                        'The Opening Line': {
+                            bad: '"Hi, I\'m calling from Wavity to talk about ITSM solutions..."',
+                            good: '"Hey [Name], this is [You] - I have a weird question for you. Are you the person who deals with ServiceNow headaches, or should I talk to someone else?"',
+                            why: 'Pattern interrupt. People expect a pitch. Ask a question instead.',
+                            tone: 'Casual, confident, slightly playful. You\'re calling a peer, not cold calling a stranger.',
+                            tags: ['calling', 'opening']
+                        },
+                        'Objection Handling': {
+                            busy: 'Them: "I\'m busy." You: "Perfect. When\'s a better time - Thursday 2pm or Friday 10am?"',
+                            happy: 'Them: "We\'re happy with ServiceNow." You: "That\'s great! Can I ask - what would it take for you to be unhappy enough to switch?"',
+                            nobudget: 'Them: "No budget." You: "Got it. What if I could show you how to cut your current ITSM spend by 40%? Would that free up budget?"',
+                            tags: ['calling', 'objections']
+                        }
+                    }
+                },
+                demo: {
+                    title: 'Demo & Discovery',
+                    icon: 'shield',
+                    colors: ['#ec4899', '#db2777'],
+                    content: {
+                        'Discovery Questions': {
+                            opening: '"Walk me through what happens when an employee submits a ticket today."',
+                            pain: '"What\'s the most frustrating part of your current ITSM setup?"',
+                            cost: '"What are you paying ServiceNow annually? And how much time does your team spend managing it?"',
+                            decision: '"If we can show you 50% cost savings with better UX, what needs to happen for you to switch?"',
+                            tags: ['demo', 'discovery']
+                        },
+                        'Demo Flow': {
+                            rule: 'Never show features. Show outcomes.',
+                            step1: '"Here\'s how your employees submit tickets - no training needed." [Show UI]',
+                            step2: '"Here\'s how your IT team triages - automated routing saves 10 hours/week." [Show automation]',
+                            step3: '"Here\'s your cost comparison: ServiceNow $600K/year (500 users), Wavity $72K/year." [Show 2025 ROI]',
+                            close: '"Questions? Or should we talk pricing?"',
+                            tags: ['demo', 'presentation']
+                        }
+                    }
+                },
+                closing: {
+                    title: 'Closing Tactics',
+                    icon: 'trending-up',
+                    colors: ['#06b6d4', '#0891b2'],
+                    content: {
+                        'Trial Close': {
+                            question: '"If pricing works, do you see any reason we wouldn\'t move forward?"',
+                            why: 'Flushes out objections before you quote. If they say "no," you\'re clear to close.',
+                            timing: 'Use after demo, before sending proposal.',
+                            tags: ['closing', 'trial-close']
+                        },
+                        'Handling Procurement': {
+                            problem: 'They love you, but "procurement needs to review."',
+                            solution: '"Got it. Can you introduce me to your procurement contact? I\'ll walk them through the business case so it doesn\'t slow us down."',
+                            leverage: 'Offer to join their vendor review meeting. Most reps don\'t - you\'ll stand out.',
+                            tags: ['closing', 'procurement']
+                        }
+                    }
+                },
+                objections: {
+                    title: 'Objection Handling',
+                    icon: 'alert-circle',
+                    colors: ['#ef4444', '#dc2626'],
+                    content: {
+                        '"Too Expensive"': {
+                            response: '"I hear you. Let\'s look at total cost. ServiceNow averages $100/user/month ($600K/year for 500 users) + $100K implementation + $120K admin. Wavity: $12/user/month ($72K/year) + $5K implementation. Over 3 years, that\'s $2.2M in savings. What could your team do with an extra $2.2M?"',
+                            data: 'Average ServiceNow cost: $100/user/month. Wavity: $12/user/month. 88% cost reduction. Plus no dedicated admin needed.',
+                            followup: 'Offer TCO calculator. Show hidden costs: admin time, implementation delays, training.',
+                            conversion: 'Price objections convert at 42% when you lead with savings calculation.',
+                            tags: ['objections', 'pricing']
+                        },
+                        '"Happy with Current Solution"': {
+                            response: '"That\'s great to hear! Can I ask - what would your team say is the most frustrating part of ServiceNow? Even if you\'re overall happy, there\'s usually something..."',
+                            probe: 'Follow-up: "How much time does your team spend on ticket routing?" "What does implementation of a new workflow take?" "How much are you spending on your ServiceNow admin?"',
+                            pivot: 'When they admit pain: "That\'s exactly what we solve. Would it be worth 15 minutes to see how we eliminate that headache while cutting costs 88%?"',
+                            tags: ['objections', 'competitive']
+                        },
+                        '"No Budget Right Now"': {
+                            response: '"Got it. What if I could show you how Wavity pays for itself by reducing your ServiceNow spend? You\'re already paying $600K. We\'re $72K. That frees up $528K for other IT priorities - budget neutral."',
+                            approach: 'Position as cost reallocation, not new spend.',
+                            timing: 'Ask: "When does your ServiceNow contract renew?" Set follow-up 60 days before renewal.',
+                            tags: ['objections', 'pricing', 'timing']
+                        },
+                        '"We Need More Features"': {
+                            response: '"Fair point. Which features specifically? In our experience, 80% of ServiceNow features go unused. Teams pay for complexity they don\'t need."',
+                            probe: 'Ask: "What percentage of ServiceNow features does your team actively use?" Usually <30%.',
+                            reframe: '"Wavity focuses on the 20% of features that drive 80% of value. Faster, simpler, cheaper. What if we could show you those features work better for your actual workflow?"',
+                            tags: ['objections', 'competitive']
+                        },
+                        '"We\'re Using Zoho Desk"': {
+                            response: '"Great choice for the Zoho ecosystem! Quick question - are you on the Enterprise plan to get Zia AI and live chat? Most teams don\'t realize those are $40-50/agent/month."',
+                            probe: 'Ask: "What tier are you on?" "Are you paying extra for AI features?" "How much are add-ons costing you?" "Is the 5-agent minimum on Express a constraint?"',
+                            pivot: '"Here\'s the thing: Wavity includes AI and live chat in our $12/month base price. That\'s the same features you\'re paying $40-50 for, at 70% less. Plus we deploy in 2 weeks vs Zoho\'s 6-8 weeks. Worth a demo?"',
+                            data: 'Zoho Enterprise (with AI): $240K-300K/year for 500 users. Wavity (AI included): $72K/year. Savings: $168K-228K annually.',
+                            tags: ['objections', 'competitive', 'zoho']
+                        },
+                        '"We\'re Using ManageEngine"': {
+                            response: '"ManageEngine is solid for ITIL shops. Can I ask - what\'s your all-in cost including add-ons like CMDB, change management, and live chat?"',
+                            probe: 'Ask: "Are you on-premise or cloud?" "How many add-ons are you paying for?" "Do you have a dedicated ManageEngine admin?" "How long did implementation take?"',
+                            pivot: '"Most ManageEngine customers tell us their actual cost is 2-3x the base price once they add CMDB, change management, and other essentials. Wavity includes all that in one price - $12/user/month, all-in. Plus we deploy in 2 weeks vs 2-6 months."',
+                            complexity: '"We also hear ManageEngine requires significant configuration and a dedicated admin. Wavity is zero-code - your team can configure workflows themselves in minutes, not months."',
+                            tags: ['objections', 'competitive', 'manageengine']
+                        }
+                    }
+                }
+            },
+            advanced: {
+                competitive: {
+                    title: 'Competitive Intelligence',
+                    icon: 'crosshair',
+                    colors: ['#dc2626', '#b91c1c'],
+                    content: {
+                        'ServiceNow Battle Card': {
+                            strengths: 'Enterprise-grade, comprehensive features, established brand, strong in large orgs (5000+ employees)',
+                            weaknesses: 'Extremely expensive ($100-200/user/month = $60K-120K annually for 500 users), complex implementation (6-12 months), requires dedicated admin ($120K/year salary), 3x Rule (for every $1 in licensing, spend $3 on implementation), over-engineered for mid-market',
+                            positioning: '"ServiceNow is a Ferrari. Great for F500. But if you\'re a 500-person company, you need a Tesla - powerful, but designed for your scale."',
+                            pricing: 'ServiceNow: $100/fulfiller/month ($60K/year for 500 users) + $30K-150K implementation + $120K admin salary = $210K-330K total Year 1. Wavity: $12/user/month ($7.2K/year for 500 users) + $5K implementation = $12.2K Year 1. Savings: $198K-318K Year 1.',
+                            landmines: 'Ask: "What\'s your total cost including implementation and admin?" "How long did ServiceNow take to implement?" "What percentage of features do you actually use?" "How much does your dedicated ServiceNow admin cost?"',
+                            proof: 'Case study: Chester moved from ServiceNow to Wavity. Cut costs 65%, implementation 3 weeks vs 8 months.',
+                            tags: ['competitive', 'servicenow']
+                        },
+                        'Zendesk Battle Card': {
+                            strengths: 'User-friendly, good for customer support, integrations, marketing, strong brand recognition',
+                            weaknesses: 'Limited ITSM capabilities, expensive at scale ($55-169/agent/month Suite plans), lacks workflow automation, per-agent pricing hurts growth, add-on costs inflate bills 20-30%',
+                            positioning: '"Zendesk is great for customer support. But ITSM needs different DNA - asset management, change control, workflow automation. That\'s where Wavity excels."',
+                            pricing: 'Zendesk Suite Professional: $115/agent/month = $69K/year for 500 users (plus add-ons). Wavity: $12/user/month = $7.2K/year for 500 users. Savings: $62K/year (90% cost reduction). Hidden costs: Advanced AI +$50/agent/month, WFM +$25/agent/month, QA +$35/agent/month.',
+                            landmines: 'Ask: "Are you using Zendesk for internal IT or customer support?" "Do you need asset management?" "What about change management workflows?" "How much are add-ons costing you?"',
+                            proof: 'Zendesk users complain of per-agent pricing model limiting growth, forced upgrades for basic features, 2-3x actual costs vs base price.',
+                            tags: ['competitive', 'zendesk']
+                        },
+                        'Freshdesk Battle Card': {
+                            strengths: 'Affordable, decent UI, good for small teams, quick setup',
+                            weaknesses: 'Limited customization, weak reporting, scales poorly, support quality issues',
+                            positioning: '"Freshservice is a good starter tool. But as you scale, you hit limits. Wavity gives you enterprise capabilities at Freshservice prices."',
+                            pricing: 'Freshservice: $29-99/agent/month. Wavity: $12/user/month flat. At scale, Wavity is 50-75% cheaper.',
+                            landmines: 'Ask: "Have you hit any limitations with Freshservice?" "How\'s their support response time?" "Can you customize workflows the way you need?"',
+                            tags: ['competitive', 'freshdesk']
+                        },
+                        'Zoho Desk Battle Card': {
+                            strengths: 'Part of Zoho ecosystem, affordable entry pricing, good integrations with Zoho CRM/Suite, multi-channel support',
+                            weaknesses: 'AI (Zia) locked to $40-50/agent/month Enterprise plan only, live chat only on Enterprise tier, steep learning curve, UI needs improvement per user reviews, feature restrictions across tiers, expensive to scale',
+                            positioning: '"Zoho Desk looks cheap on paper, but you pay $40-50/agent/month for AI and live chat. Wavity includes AI in base $12/month price - that\'s 70-75% savings with better features."',
+                            pricing: 'Zoho Desk: Express $7/month (5 agent min, no AI), Standard $20/month (no AI/live chat), Professional $25/month (no AI/live chat), Enterprise $40-50/month (AI + live chat). Wavity: $12/month ALL features including AI. 500 users: Zoho Enterprise = $240K-300K/year. Wavity = $72K/year. Savings: $168K-228K/year (70-76%).',
+                            landmines: 'Ask: "Are you on Enterprise plan for Zia AI?" "How much extra are you paying for live chat?" "Have you hit the 15-day trial limitation?" "Is the UI intuitive for your team?" "What\'s your total cost with add-ons?"',
+                            hiddencosts: 'AI requires Enterprise ($40-50/month). Live chat requires Enterprise. SLA management Enterprise only. Collision detection Pro+ only ($25+). Many features locked to higher tiers. Users complain: "very expensive to scale" and "additional features require further licenses."',
+                            proof: 'G2 reviews mention: "expensive to scale," "steep learning curve," "UI needs improvement," "feature restrictions frustrating." Users pay 3-5x more than expected due to tier limitations.',
+                            tags: ['competitive', 'zoho']
+                        },
+                        'ManageEngine ServiceDesk Plus Battle Card': {
+                            strengths: 'Strong ITIL compliance, good asset management, on-premise option available, free for 5 technicians, part of Zoho Corporation',
+                            weaknesses: 'Complex pricing with multiple add-ons, per-technician + per-asset pricing confusing, inconsistent support quality per reviews, requires significant configuration, steep learning curve, mobile app limited',
+                            positioning: '"ManageEngine is powerful but complex. Built for enterprises with dedicated IT teams. Wavity gives you the same power without the complexity or cost - deploy in weeks, not months."',
+                            pricing: 'ManageEngine: Standard $13/tech/month + asset costs, Professional $20+/tech/month, Enterprise $35+/tech/month, plus mandatory add-ons (CMDB, change management, live chat all extra). 500 users example: $78K-210K/year base + add-ons. Wavity: $72K/year all-inclusive. Savings: $6K-138K/year.',
+                            landmines: 'Ask: "What\'s your total cost including add-ons?" "How much are you spending on CMDB/change management/live chat separately?" "How long did implementation take?" "Do you have dedicated ManageEngine admin?" "How\'s the support response time been?"',
+                            hiddencosts: 'Base price looks low but add-ons are required: CMDB (extra), Change Management (extra), Live Chat (extra), Advanced reporting (extra), Multi-language support (extra). Asset management charged separately per node. Annual maintenance $35/tech for free users. Implementation typically requires consultants.',
+                            complexity: 'Users report: "requires fine-tuning," "time and effort to utilize all features," "email/SMS alerts need configuration," "mobile app lacks desktop features." Often needs dedicated admin.',
+                            proof: 'Reviews mention: "confusing pricing," "modular pricing means buying what you need separately," "not quite worth the price tag," "high cost," "lack of updates." Implementation 2-6 months vs Wavity\'s 2 weeks.',
+                            tags: ['competitive', 'manageengine']
+                        }
+                    }
+                },
+                industries: {
+                    title: 'Industry Playbooks',
+                    icon: 'briefcase',
+                    colors: ['#7c3aed', '#6d28d9'],
+                    content: {
+                        'SaaS Companies': {
+                            profile: '100-1000 employees, $10M-$100M ARR, growth-stage post-Series B',
+                            pain: 'Outgrowing basic tools (Zendesk), can\'t afford ServiceNow, need to scale support with headcount growth',
+                            pitch: '"You\'re scaling fast. Your support team is growing 30%+ annually. Wavity scales with you without the ServiceNow price tag. Deploy in 2 weeks, not 6 months."',
+                            proof: 'Reference: PropTech SaaS reduced ITSM costs 58% while scaling from 200 to 600 employees.',
+                            objections: '"We need integrations." → "We integrate with Slack, Jira, GitHub, AWS - all tools SaaS teams use daily."',
+                            tags: ['industry', 'saas']
+                        },
+                        'Healthcare Technology': {
+                            profile: 'Healthcare SaaS, digital health, health systems IT departments',
+                            pain: 'HIPAA compliance requirements, security audits, vendor risk assessments, need SOC2 + HIPAA',
+                            pitch: '"Healthcare IT is different. You need SOC2, HIPAA, audit trails, and security by default. Wavity is built for regulated industries. We pass your vendor security reviews."',
+                            proof: 'Wavity certifications: SOC2 Type II, HIPAA compliant, ISO 27001. Reference: Healthcare SaaS company passed Big 4 audit first try.',
+                            objections: '"What about PHI data?" → "All data encrypted at rest and in transit. Role-based access. Complete audit trails. HIPAA-compliant by design."',
+                            tags: ['industry', 'healthcare']
+                        },
+                        'Financial Services': {
+                            profile: 'Fintech, banks, insurance, wealth management',
+                            pain: 'Regulatory compliance, security requirements, audit trails, change management',
+                            pitch: '"Financial services require institutional-grade security and compliance. Wavity meets your compliance requirements at a fraction of ServiceNow\'s cost."',
+                            proof: 'SOC2 Type II, ISO 27001, GDPR compliant. Complete audit trails for regulatory reviews.',
+                            objections: '"We need approval workflows." → "Multi-level approval chains, complete audit history, role-based access - built in."',
+                            tags: ['industry', 'financial']
+                        }
+                    }
+                },
+                aitools: {
+                    title: 'AI Sales Tools',
+                    icon: 'cpu',
+                    colors: ['#8b5cf6', '#7c3aed'],
+                    content: {
+                        'Wavity Agentic AI Platform': {
+                            smartticket: 'AI-powered ticketing with intelligent routing, predictive insights, and autonomous issue resolution',
+                            selfevolving: 'Self-evolving knowledge base powered by AI - learns from every interaction',
+                            workflow: 'Dynamic workflow optimization through Agentic AI - adapts processes automatically',
+                            proactive: 'AI-driven ticket generation and proactive problem prevention',
+                            sentiment: 'Advanced sentiment and context awareness via Agentic AI - understands customer emotion',
+                            positioning: '"Unlike competitors that just automate, Wavity\'s Agentic AI actually thinks, learns, and improves - like having your best agent cloned 1000 times."',
+                            competitive: 'ServiceNow charges $50/user/month extra for "Now Assist" AI. Zendesk charges $50/agent/month for Advanced AI. Wavity: AI included in base price.',
+                            tags: ['ai', 'platform']
+                        }
+                    }
+                }
+            },
+            resources: {
+                roi: {
+                    title: 'ROI Calculator',
+                    icon: 'calculator',
+                    colors: ['#10b981', '#059669'],
+                    content: {
+                        'TCO Comparison Tool': {
+                            servicenow: 'ServiceNow TCO = ($100/user/month × users × 12) + $30K-150K implementation + ($120K admin salary) + ($200/year maintenance). Example 500 users: $600K (licenses) + $100K (implementation) + $120K (admin) = $820K Year 1',
+                            zendesk: 'Zendesk Suite Professional TCO = ($115/agent/month × users × 12) + add-ons (typically +30%). Example 500 users: $690K base + $207K add-ons = $897K Year 1',
+                            wavity: 'Wavity TCO = ($12/user/month × users × 12) + $5K implementation. Example 500 users: $72K + $5K = $77K Year 1',
+                            savings: 'Wavity saves: $743K vs ServiceNow (91%), $820K vs Zendesk (91%). 3-year savings: $2.2M+ vs ServiceNow, $2.4M+ vs Zendesk.',
+                            tags: ['roi']
+                        }
+                    }
+                },
+                casestudies: {
+                    title: 'Customer Success',
+                    icon: 'award',
+                    colors: ['#f59e0b', '#d97706'],
+                    content: {
+                        'Hitachi: Enterprise': {
+                            challenge: 'Legacy homegrown system, 2000+ users across 15 countries, slow ticket resolution, no mobile access',
+                            solution: 'Wavity deployment in 6 weeks, Mobile-first interface, AI-powered routing, Multi-language support',
+                            results: '45% faster ticket resolution, 87% employee satisfaction (up from 52%), $2.1M annual savings, 3-week deployment vs 8-month ServiceNow estimate',
+                            quote: '"Wavity delivered enterprise capabilities at a fraction of the cost and time of alternatives."',
+                            tags: ['case-study', 'enterprise']
+                        },
+                        'Chester: ServiceNow Migration': {
+                            challenge: 'ServiceNow too expensive ($180K/year), Complex admin requirements, Over-engineered for 400-person company',
+                            solution: 'Migrated to Wavity in 3 weeks, Zero-code workflow customization, $60K annual cost',
+                            results: '65% cost reduction ($120K annual savings), 95% reduction in admin time, Better user adoption (78% vs 43% with ServiceNow)',
+                            quote: '"We got better results at 1/3 the cost. Should have made this move two years ago."',
+                            tags: ['case-study', 'midmarket']
+                        },
+                        'Qualfon: BPO Operations': {
+                            challenge: 'Managing support for 15+ clients, Complex reporting needs, Multi-tenant requirements',
+                            solution: 'Wavity multi-tenant architecture, Custom dashboards per client, Real-time analytics',
+                            results: '23% improvement in SLA compliance, Client satisfaction +31%, Reduced reporting time from 8 hours to 15 minutes',
+                            tags: ['case-study', 'enterprise']
+                        }
+                    }
+                },
+                personas: {
+                    title: 'Buyer Personas',
+                    icon: 'users',
+                    colors: ['#06b6d4', '#0891b2'],
+                    content: {
+                        'IT Director': {
+                            priorities: 'Team efficiency, User satisfaction, Budget optimization, Ease of administration',
+                            pain: 'Drowning in tickets, Admin overhead, User complaints, Limited budget',
+                            pitch: '"Wavity reduces your admin time 80% while improving user satisfaction. Your team can focus on strategic projects, not ticket routing."',
+                            objections: '"Need CIO approval" → "Perfect. What metrics matter most to your CIO? Cost savings? User satisfaction? Deployment speed? Let\'s build that business case together."',
+                            tags: ['persona', 'it-director']
+                        },
+                        'CIO / VP of IT': {
+                            priorities: 'IT portfolio optimization, Cost reduction, Business enablement, Risk management',
+                            pain: 'Tech debt, Budget pressure, Digital transformation goals, Shadow IT',
+                            pitch: '"Wavity reduces ITSM costs 60%+ while modernizing your IT stack. Redeploy savings to strategic initiatives. Deploy in weeks, not months."',
+                            value: 'Business case focuses on: TCO reduction, Speed to value, Strategic budget reallocation, Risk mitigation',
+                            tags: ['persona', 'cio']
+                        }
+                    }
+                },
+                pricing: {
+                    title: 'Pricing & Negotiation',
+                    icon: 'dollar-sign',
+                    colors: ['#ec4899', '#db2777'],
+                    content: {
+                        'Standard Pricing 2025': {
+                            helpdesk: '$12/agent/month (Help & Service Desk), Includes: Email ticketing, Asset management, Mobile apps, Basic automation, AI-powered routing',
+                            workflow: '$3/agent/month (Work and Project Management), Includes: Project tracking, Task management, Collaboration tools',
+                            automation: 'Custom pricing (Automate Workflow), wBots RPA tool, Zero-code workflow builder, Custom integrations',
+                            advantage: 'Wavity averages 60-90% cost savings vs ServiceNow, 75-85% vs Zendesk Suite. Zero-code = faster deployment, lower TCO.',
+                            tags: ['pricing']
+                        },
+                        'Discount Authority': {
+                            rep: 'Can approve: Up to 10% discount for annual prepay, 5% for 2-year commitment',
+                            manager: 'Can approve: Up to 20% for strategic accounts, 15% for 3-year deals, Custom packaging',
+                            vp: 'Can approve: 25%+ for enterprise (500+ users), Custom terms, Pilot programs',
+                            rules: 'Always get something in return: Annual prepay, Case study rights, Reference customer, Earlier start date',
+                            tags: ['discounts']
+                        }
+                    }
+                },
+                postsale: {
+                    title: 'Post-Sale Success',
+                    icon: 'check-circle',
+                    colors: ['#10b981', '#059669'],
+                    content: {
+                        'Onboarding Excellence': {
+                            week1: 'Kickoff call, Environment setup, Admin training, Success criteria defined',
+                            week2: 'Data migration, Workflow configuration, Power user training, Quick win identification',
+                            week4: 'Full rollout, User training, Monitor adoption, Collect feedback',
+                            week8: 'Business review, Showcase value, Identify expansion opportunities',
+                            goal: 'Hit "wow moment" by week 4. Show tangible value (time savings, cost reduction, user satisfaction).',
+                            tags: ['onboarding']
+                        },
+                        'Expansion Playbook': {
+                            timing: 'Best time to expand: 60-90 days post-deployment when value is proven',
+                            triggers: 'User requests for features, Hitting user limits, New departments wanting access, Success in pilot',
+                            approach: '"Your help desk team loves Wavity. Has IT assets team seen the asset management module? It\'s already included."',
+                            packages: 'Help Desk → Add Asset Management → Add Project Management → Add Workflow Automation',
+                            tags: ['expansion']
+                        },
+                        'Renewal Strategy': {
+                            day90: 'Business review. Show value delivered. Calculate ROI. Identify gaps.',
+                            day60: 'Renewal proposal. Multi-year discount offer. Expansion opportunities.',
+                            day30: 'Executive alignment. Address concerns. Negotiation if needed.',
+                            day0: 'Close renewal. Celebrate. Plan next year initiatives.',
+                            retention: 'Customers who have QBRs renew at 96%. Those who don\'t: 73%.',
+                            tags: ['renewal']
+                        }
+                    }
+                }
+            }
+        };
+
+        const icons = {
+            target: '<circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle>',
+            zap: '<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>',
+            mail: '<rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>',
+            phone: '<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>',
+            shield: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>',
+            'trending-up': '<polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline>',
+            'alert-circle': '<circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line>',
+            crosshair: '<circle cx="12" cy="12" r="10"></circle><line x1="22" y1="12" x2="18" y2="12"></line><line x1="6" y1="12" x2="2" y2="12"></line><line x1="12" y1="6" x2="12" y2="2"></line><line x1="12" y1="22" x2="12" y2="18"></line>',
+            briefcase: '<rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>',
+            cpu: '<rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line>',
+            calculator: '<rect x="4" y="2" width="16" height="20" rx="2"></rect><line x1="8" y1="6" x2="16" y2="6"></line><line x1="16" y1="14" x2="16" y2="18"></line><line x1="8" y1="14" x2="8" y2="14"></line><line x1="12" y1="14" x2="12" y2="14"></line><line x1="8" y1="18" x2="8" y2="18"></line><line x1="12" y1="18" x2="12" y2="18"></line>',
+            award: '<circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>',
+            users: '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path>',
+            'dollar-sign': '<line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>',
+            'check-circle': '<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline>'
+        };
+
+        let currentSection = 'icp';
+        let currentCategory = 'core';
+        let bookmarkedItems = new Set();
+        let editingTactic = null;
+
+        function updateStats() {
+            let totalTactics = 0;
+            Object.values(playbook).forEach(category => {
+                Object.values(category).forEach(section => {
+                    totalTactics += Object.keys(section.content).length;
+                });
+            });
+            document.getElementById('tacticsCount').textContent = totalTactics;
+            document.getElementById('bookmarksCount').textContent = bookmarkedItems.size;
+        }
+
+        function renderNavButtons() {
+            // Core navigation
+            const coreNav = document.getElementById('coreNavButtons');
+            coreNav.innerHTML = Object.entries(playbook.core).map(([id, section]) => `
+                <button class="nav-button ${currentSection === id && currentCategory === 'core' ? 'active' : ''}" 
+                        onclick="loadSection('${id}', 'core')"
+                        style="--section-color-1: ${section.colors[0]}; --section-color-2: ${section.colors[1]}">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        ${icons[section.icon]}
+                    </svg>
+                    <span>${section.title}</span>
+                </button>
+            `).join('');
+
+            // Advanced navigation
+            const advancedNav = document.getElementById('advancedNavButtons');
+            advancedNav.innerHTML = Object.entries(playbook.advanced).map(([id, section]) => `
+                <button class="nav-button ${currentSection === id && currentCategory === 'advanced' ? 'active' : ''}" 
+                        onclick="loadSection('${id}', 'advanced')"
+                        style="--section-color-1: ${section.colors[0]}; --section-color-2: ${section.colors[1]}">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        ${icons[section.icon]}
+                    </svg>
+                    <span>${section.title}</span>
+                </button>
+            `).join('');
+
+            // Resources navigation
+            const resourcesNav = document.getElementById('resourcesNavButtons');
+            resourcesNav.innerHTML = Object.entries(playbook.resources).map(([id, section]) => `
+                <button class="nav-button ${currentSection === id && currentCategory === 'resources' ? 'active' : ''}" 
+                        onclick="loadSection('${id}', 'resources')"
+                        style="--section-color-1: ${section.colors[0]}; --section-color-2: ${section.colors[1]}">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        ${icons[section.icon]}
+                    </svg>
+                    <span>${section.title}</span>
+                </button>
+            `).join('');
+        }
+
+        function loadSection(sectionId, category) {
+            currentSection = sectionId;
+            currentCategory = category;
+            
+            const section = playbook[category][sectionId];
+            const header = document.getElementById('contentHeader');
+            
+            header.style.setProperty('--section-color-1', section.colors[0]);
+            header.style.setProperty('--section-color-2', section.colors[1]);
+            
+            document.getElementById('contentIcon').innerHTML = icons[section.icon];
+            document.getElementById('contentTitle').textContent = section.title;
+            document.getElementById('contentSubtitle').textContent = `${Object.keys(section.content).length} tactics available`;
+            
+            renderContent();
+            renderNavButtons();
+        }
+
+        function renderContent() {
+            const section = playbook[currentCategory][currentSection];
+            const body = document.getElementById('contentBody');
+            
+            body.innerHTML = Object.entries(section.content).map(([key, value]) => 
+                createTacticCard(key, value)
+            ).join('');
+            
+            updateStats();
+        }
+
+        function createTacticCard(name, data) {
+            const bookmarkId = `${currentCategory}-${currentSection}-${name}`;
+            const isBookmarked = bookmarkedItems.has(bookmarkId);
+            
+            const tags = data.tags ? data.tags.map(tag => 
+                `<span class="tag">${tag}</span>`
+            ).join('') : '';
+
+            const fields = Object.entries(data)
+                .filter(([k]) => k !== 'tags')
+                .map(([key, value]) => `
+                    <div class="content-item">
+                        <span class="content-label">${key}:</span>
+                        <div class="content-text">${value}</div>
+                    </div>
+                `).join('');
+
+            return `
+                <div class="tactic-card">
+                    <div class="tactic-header" onclick="toggleCard(event)">
+                        <div class="tactic-header-left">
+                            <h3 class="tactic-title">${name}</h3>
+                            ${tags ? `<div class="tags">${tags}</div>` : ''}
+                        </div>
+                        <div class="tactic-controls">
+                            <button class="icon-btn ${isBookmarked ? 'active' : ''}" 
+                                    onclick="toggleBookmark(event, '${bookmarkId}')" 
+                                    title="Bookmark">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="${isBookmarked ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2">
+                                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                                </svg>
+                            </button>
+                            <button class="icon-btn" onclick="editTactic('${name.replace(/'/g, "\\'")}', event)" title="Edit">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                                </svg>
+                            </button>
+                            <button class="icon-btn delete" onclick="deleteTactic('${name.replace(/'/g, "\\'")}', event)" title="Delete">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="3 6 5 6 21 6"></polyline>
+                                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                                </svg>
+                            </button>
+                            <svg class="chevron" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="tactic-content">
+                        ${fields}
+                    </div>
+                </div>
+            `;
+        }
+
+        function toggleCard(event) {
+            if (event.target.closest('.icon-btn')) return;
+            const card = event.currentTarget.closest('.tactic-card');
+            card.classList.toggle('expanded');
+        }
+
+        function toggleBookmark(event, id) {
+            event.stopPropagation();
+            const btn = event.currentTarget;
+            
+            if (bookmarkedItems.has(id)) {
+                bookmarkedItems.delete(id);
+                btn.classList.remove('active');
+                btn.querySelector('polygon').setAttribute('fill', 'none');
+            } else {
+                bookmarkedItems.add(id);
+                btn.classList.add('active');
+                btn.querySelector('polygon').setAttribute('fill', 'currentColor');
+            }
+            updateStats();
+        }
+
+        function openAddModal() {
+            editingTactic = null;
+            document.getElementById('modalTitle').textContent = 'Add New Tactic';
+            document.getElementById('tacticForm').reset();
+            document.getElementById('fieldsContainer').innerHTML = '';
+            addField();
+            document.getElementById('tacticModal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('tacticModal').classList.remove('active');
+        }
+
+        function addField() {
+            const container = document.getElementById('fieldsContainer');
+            const fieldDiv = document.createElement('div');
+            fieldDiv.className = 'field-item';
+            fieldDiv.innerHTML = `
+                <input type="text" class="form-input" placeholder="Label (e.g., 'why', 'how')">
+                <input type="text" class="form-input" placeholder="Content">
+                <button type="button" class="btn btn-secondary" onclick="this.parentElement.remove()" style="padding: 12px;">×</button>
+            `;
+            container.appendChild(fieldDiv);
+        }
+
+        function editTactic(name, event) {
+            event.stopPropagation();
+            const section = playbook[currentCategory][currentSection];
+            const tactic = section.content[name];
+            
+            editingTactic = { name, data: tactic };
+            document.getElementById('modalTitle').textContent = 'Edit Tactic';
+            document.getElementById('tacticName').value = name;
+            document.getElementById('tacticTags').value = tactic.tags ? tactic.tags.join(', ') : '';
+            
+            const fieldsContainer = document.getElementById('fieldsContainer');
+            fieldsContainer.innerHTML = '';
+            
+            Object.entries(tactic).filter(([k]) => k !== 'tags').forEach(([key, value]) => {
+                const fieldDiv = document.createElement('div');
+                fieldDiv.className = 'field-item';
+                fieldDiv.innerHTML = `
+                    <input type="text" class="form-input" value="${key}">
+                    <input type="text" class="form-input" value="${value}">
+                    <button type="button" class="btn btn-secondary" onclick="this.parentElement.remove()" style="padding: 12px;">×</button>
+                `;
+                fieldsContainer.appendChild(fieldDiv);
+            });
+            
+            document.getElementById('tacticModal').classList.add('active');
+        }
+
+        function deleteTactic(name, event) {
+            event.stopPropagation();
+            if (confirm(`Are you sure you want to delete "${name}"?`)) {
+                const section = playbook[currentCategory][currentSection];
+                delete section.content[name];
+                renderContent();
+            }
+        }
+
+        function saveTactic(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('tacticName').value.trim();
+            const tags = document.getElementById('tacticTags').value.split(',').map(t => t.trim()).filter(Boolean);
+            const fields = document.querySelectorAll('.field-item');
+            
+            const tacticData = {};
+            fields.forEach(field => {
+                const inputs = field.querySelectorAll('input');
+                const key = inputs[0].value.trim();
+                const value = inputs[1].value.trim();
+                if (key && value) {
+                    tacticData[key] = value;
+                }
+            });
+            
+            if (tags.length > 0) {
+                tacticData.tags = tags;
+            }
+            
+            const section = playbook[currentCategory][currentSection];
+            
+            if (editingTactic && editingTactic.name !== name) {
+                delete section.content[editingTactic.name];
+            }
+            
+            section.content[name] = tacticData;
+            
+            closeModal();
+            renderContent();
+        }
+
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            const cards = document.querySelectorAll('.tactic-card');
+            
+            cards.forEach(card => {
+                const text = card.textContent.toLowerCase();
+                if (text.includes(query)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
+        // Initialize
+        renderNavButtons();
+        loadSection('icp', 'core');
+    </script>
+</body>
+</html>
